@@ -649,3 +649,14 @@ main {
 .site-nav__link--active:focus-visible {
   outline-color: var(--color-white);
 }
+
+/* ===============================
+   17. Учебный блок проверки JS
+   =============================== */
+.product-output {
+  padding: var(--space-md);
+  overflow-x: auto;
+  color: var(--color-white);
+  background-color: var(--color-text);
+  border-radius: var(--radius-md);
+}
