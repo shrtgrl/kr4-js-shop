@@ -44,14 +44,12 @@ if (orderDialog) {
 
 // ===== ПЗ 15: проверка подключения JavaScript =====
 console.log('Файл main.js подключён');
-console.log(product);
-console.table(product);
+console.log(products);
+console.table(products);
 
 function formatPrice(price) {
   return `${price.toLocaleString('ru-RU')} руб.`;
 }
-
-console.log(formatPrice(product.price));
 
 function calculateDiscount(price, discountPercent) {
   return price * discountPercent / 100;
@@ -62,9 +60,6 @@ function calculateFinalPrice(price, discountPercent) {
   return price - discountValue;
 }
 
-console.log(calculateDiscount(product.price, product.discountPercent));  
-console.log(calculateFinalPrice(product.price, product.discountPercent)); 
-
 function getProductStatus(product) {
   if (product.isAvailable) {
     return 'В наличии';
@@ -72,26 +67,118 @@ function getProductStatus(product) {
   return 'Нет в наличии';
 }
 
-console.log(getProductStatus(product)); 
-
 function createProductSummary(product) {
   const finalPrice = calculateFinalPrice(product.price, product.discountPercent);
   const status = getProductStatus(product);
   return `${product.title}: ${formatPrice(finalPrice)} Статус: ${status}.`;
 }
 
-const productSummary = createProductSummary(product);
-console.log(productSummary);
-
 const messageElement = document.querySelector('.js-message');
 const productOutputElement = document.querySelector('.product-output');
 
+function getProductTitles(products) {
+  return products.map((product) => product.title);
+}
+
+console.log(getProductTitles(products));
+
+function getAvailableProducts(products) {
+  return products.filter((product) => product.isAvailable);
+}
+
+console.table(getAvailableProducts(products));
+
+function searchProducts(products, query) {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  if (normalizedQuery === '') {
+    return products;
+  }
+
+  return products.filter((product) => {
+    return product.title.toLowerCase().includes(normalizedQuery);
+  });
+}
+
+console.table(searchProducts(products, '  KANYE ')); 
+
+function filterProductsByCategory(products, category) {
+  if (category === 'all') {
+    return products;
+  }
+
+  return products.filter((product) => product.category === category);
+}
+
+console.table(filterProductsByCategory(products, 'rnb')); 
+
+function sortProductsByPrice(products, direction = 'asc') {
+  const productsCopy = [...products];
+
+  if (direction === 'desc') {
+    return productsCopy.sort((a, b) => b.price - a.price);
+  }
+
+  return productsCopy.sort((a, b) => a.price - b.price);
+}
+
+console.table(sortProductsByPrice(products, 'asc'));
+console.table(sortProductsByPrice(products, 'desc'));
+
+function findProductById(products, id) {
+  return products.find((product) => product.id === id);
+}
+
+const selectedProduct = findProductById(products, 6);
+
+if (selectedProduct) {
+  console.log(`Найден товар: ${selectedProduct.title}`); 
+} else {
+  console.log('Товар не найден');
+}
+
+function calculateTotalPrice(products) {
+  return products.reduce((sum, product) => sum + product.price, 0);
+}
+
+console.log(calculateTotalPrice(products)); 
+
+function countAvailableProducts(products) {
+  return getAvailableProducts(products).length;
+}
+
+console.log(countAvailableProducts(products)); 
+
+function calculateAveragePrice(products) {
+  if (products.length === 0) {
+    return 0;
+  }
+
+  return Math.round(calculateTotalPrice(products) / products.length);
+}
+
+console.log(calculateAveragePrice(products)); 
+
+function getPreparedProducts(products, query, category, sortDirection) {
+  let result = searchProducts(products, query);
+  result = filterProductsByCategory(result, category);
+  result = sortProductsByPrice(result, sortDirection);
+  return result;
+}
+
+console.table(getPreparedProducts(products, 'tyler', 'hiphop', 'desc'));
+
 if (messageElement) {
-  messageElement.textContent = 'JavaScript подключён корректно.';
+  messageElement.textContent = 'Массив товаров и функции обработки данных подключены.';
 }
 
 if (productOutputElement) {
-  productOutputElement.textContent = productSummary;
+  productOutputElement.textContent = [
+    `Всего товаров: ${products.length}`,
+    `Товаров в наличии: ${countAvailableProducts(products)}`,
+    `Средняя цена: ${formatPrice(calculateAveragePrice(products))}`,
+    `Результатов поиска "kanye": ${searchProducts(products, 'kanye').length}`
+  ].join('\n');
 }
 
 // const unsafeExample = '<img src=x onerror=alert(1)>';
