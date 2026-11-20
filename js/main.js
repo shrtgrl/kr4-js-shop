@@ -42,126 +42,58 @@ if (orderDialog) {
   });
 }
 
-// Карусель «Как это носят»: автопрокрутка по кругу и точки для перехода.
-const lookbook = document.querySelector('.lookbook');
+// ===== ПЗ 15: проверка подключения JavaScript =====
+console.log('Файл main.js подключён');
+console.log(product);
+console.table(product);
 
-if (lookbook) {
-  const track = lookbook.querySelector('.lookbook__track');
-  const slides = track.querySelectorAll('.lookbook__slide');
-  const dotsBox = lookbook.querySelector('.lookbook__dots');
-
-  const DELAY = 5000; // 5 секунд на слайд
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  let total = 0;            // сколько позиций (на десктопе видно 2 слайда — позиций меньше)
-  let timer = null;
-  const paused = reduceMotion; // если пользователь просил меньше анимации — не крутим сами
-  let hovered = false;
-  let focused = false;
-
-  // Шаг = ширина слайда + gap.
-  const getStep = () => slides[1].offsetLeft - slides[0].offsetLeft;
-  const getCurrent = () => Math.round(track.scrollLeft / getStep());
-
-  // Переход с зацикливанием: после последнего — первый, перед первым — последний.
-  const goTo = (index) => {
-    const target = (index + total) % total;
-    track.scrollTo({ left: target * getStep() });
-  };
-
-  const updateDots = () => {
-    const current = getCurrent();
-    dotsBox.querySelectorAll('.slider-dot').forEach((dot, index) => {
-      if (index === current) {
-        dot.setAttribute('aria-current', 'true');
-      } else {
-        dot.removeAttribute('aria-current');
-      }
-    });
-  };
-
-  // Точки строим из JS: их число зависит от того, сколько слайдов видно сразу.
-  const buildDots = () => {
-    total = Math.round((track.scrollWidth - track.clientWidth) / getStep()) + 1;
-    dotsBox.innerHTML = '';
-
-    for (let i = 0; i < total; i += 1) {
-      const dot = document.createElement('button');
-      dot.className = 'slider-dot';
-      dot.type = 'button';
-      dot.setAttribute('aria-label', `Слайд ${i + 1} из ${total}`);
-      dot.addEventListener('click', () => goTo(i));
-      dotsBox.append(dot);
-    }
-
-    updateDots();
-  };
-
-  // Автопрокрутка идёт, только если её не остановили и пользователь не взаимодействует с каруселью.
-  const stop = () => clearInterval(timer);
-  const start = () => {
-    stop();
-    if (!paused && !hovered && !focused && !document.hidden) {
-      timer = setInterval(() => goTo(getCurrent() + 1), DELAY);
-    }
-  };
-
-  // Пауза при наведении мыши и при фокусе с клавиатуры.
-  lookbook.addEventListener('mouseenter', () => { hovered = true; stop(); });
-  lookbook.addEventListener('mouseleave', () => { hovered = false; start(); });
-  lookbook.addEventListener('focusin', () => { focused = true; stop(); });
-  lookbook.addEventListener('focusout', (event) => {
-    if (!lookbook.contains(event.relatedTarget)) {
-      focused = false;
-      start();
-    }
-  });
-
-  // Вкладка скрыта — не крутим зря.
-  document.addEventListener('visibilitychange', start);
-
-  track.addEventListener('scroll', updateDots);
-  window.addEventListener('resize', buildDots);
-
-  buildDots();
-  start();
+function formatPrice(price) {
+  return `${price.toLocaleString('ru-RU')} руб.`;
 }
 
-// Слайдеры фото в карточках товаров: только точки и свайп, без автопрокрутки.
-document.querySelectorAll('.card-slider').forEach((slider) => {
-  const track = slider.querySelector('.card-slider__track');
-  const slides = track.querySelectorAll('.card-slider__slide');
-  const dotsBox = slider.querySelector('.card-slider__dots');
-  const title = slider.closest('.product-card').querySelector('.product-card__title').textContent;
+console.log(formatPrice(product.price));
 
-  if (slides.length < 2) return; // одно фото — листать нечего
+function calculateDiscount(price, discountPercent) {
+  return price * discountPercent / 100;
+}
 
-  // В карточке всегда видно одно фото, поэтому шаг = ширина ленты.
-  const getCurrent = () => Math.round(track.scrollLeft / track.clientWidth);
+function calculateFinalPrice(price, discountPercent) {
+  const discountValue = calculateDiscount(price, discountPercent);
+  return price - discountValue;
+}
 
-  const dots = [...slides].map((slide, i) => {
-    const dot = document.createElement('button');
-    dot.className = 'slider-dot';
-    dot.type = 'button';
-    dot.setAttribute('aria-label', `${title}: фото ${i + 1} из ${slides.length}`);
-    dot.addEventListener('click', () => {
-      track.scrollTo({ left: i * track.clientWidth });
-    });
-    dotsBox.append(dot);
-    return dot;
-  });
+console.log(calculateDiscount(product.price, product.discountPercent));  
+console.log(calculateFinalPrice(product.price, product.discountPercent)); 
 
-  const updateDots = () => {
-    const current = getCurrent();
-    dots.forEach((dot, i) => {
-      if (i === current) {
-        dot.setAttribute('aria-current', 'true');
-      } else {
-        dot.removeAttribute('aria-current');
-      }
-    });
-  };
+function getProductStatus(product) {
+  if (product.isAvailable) {
+    return 'В наличии';
+  }
+  return 'Нет в наличии';
+}
 
-  track.addEventListener('scroll', updateDots);
-  updateDots();
-});
+console.log(getProductStatus(product)); 
+
+function createProductSummary(product) {
+  const finalPrice = calculateFinalPrice(product.price, product.discountPercent);
+  const status = getProductStatus(product);
+  return `${product.title}: ${formatPrice(finalPrice)} Статус: ${status}.`;
+}
+
+const productSummary = createProductSummary(product);
+console.log(productSummary);
+
+const messageElement = document.querySelector('.js-message');
+const productOutputElement = document.querySelector('.product-output');
+
+if (messageElement) {
+  messageElement.textContent = 'JavaScript подключён корректно.';
+}
+
+if (productOutputElement) {
+  productOutputElement.textContent = productSummary;
+}
+
+// const unsafeExample = '<img src=x onerror=alert(1)>';
+// productOutputElement.innerHTML = unsafeExample;   // выполнит код: выскочит alert
+// productOutputElement.textContent = unsafeExample; // покажет строку как текст

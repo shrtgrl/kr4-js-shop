@@ -4,10 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Главная — Kanan</title>
-  <meta name="description" content="Kanan — магазин оригинальных футбольных ретро-форм 1990–2000-х.">
+  <title>Главная — HeartBeat</title>
+  <meta name="description" content="HeartBeat — магазин виниловых пластинок: рок, джаз, электроника и хип-хоп.">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/data.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
@@ -16,9 +17,7 @@
 
   <header class="site-header" id="top">
     <div class="site-header__inner">
-      <a class="site-header__logo" href="index.html">
-        <img src="images/logo-light.svg" alt="Kanan — на главную" width="134" height="32">
-      </a>
+      <a class="site-header__logo" href="index.html">HeartBeat</a>
 
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-list"
         aria-label="Открыть меню">
@@ -52,29 +51,23 @@
   <main id="main">
     <section class="hero">
       <div class="hero__content">
-        <h1 class="hero__title"><i>Формы, которые помнят великие матчи</i></h1>
+        <h1 class="hero__title">Виниловые пластинки HeartBeat</h1>
         <p class="hero__text">
-          Kanan — магазин оригинальных футбольных ретро-форм 1990–2000-х. Каждую вещь проверяем вручную, прежде чем отправить её вам.
+          Новые релизы и классика на виниле: рок, джаз, электроника и хип-хоп.
+          Каждую пластинку проверяем на проигрывателе перед отправкой.
         </p>
         <div class="hero__actions">
           <a class="button button--primary" href="catalog.html">Перейти в каталог</a>
           <a class="button button--secondary" href="#popular">Популярные товары</a>
         </div>
       </div>
-      <picture>
-        <source media="(min-width: 900px)" type="image/webp" srcset="images/hero/hero-1-desktop.webp" width="736" height="981">
-        <source media="(min-width: 900px)" srcset="images/hero/hero-1-desktop.jpg" width="736" height="981">
-        <source media="(min-width: 640px)" type="image/webp" srcset="images/hero/hero-1-tablet.webp" width="736" height="552">
-        <source media="(min-width: 640px)" srcset="images/hero/hero-1-tablet.jpg" width="736" height="552">
-        <source type="image/webp" srcset="images/hero/hero-1-mobile.webp" width="640" height="640">
-        <img
-          class="hero__image"
-          src="images/hero/hero-1-mobile.jpg"
-          alt="Девушка в красной футболке сборной Испании с номером 21"
-          width="640"
-          height="640"
-        >
-      </picture>
+      <img
+        class="hero__image"
+        src="images/placeholder-record.svg"
+        alt=""
+        width="600"
+        height="600"
+      >
     </section>
 
     <section class="section" id="advantages">
@@ -82,54 +75,18 @@
 
       <ul class="advantages">
         <li class="advantages__item">
-          <h3 class="advantages__title">Доставка по России</h3>
-          <p class="advantages__text">Отправляем за 1–3 дня, бережно упакованными, без сгибов на принте.</p>
+          <h3 class="advantages__title">Бережная доставка</h3>
+          <p class="advantages__text">Упаковываем в жёсткий конверт, чтобы пластинка не погнулась в дороге.</p>
         </li>
         <li class="advantages__item">
-          <h3 class="advantages__title">Только оригиналы</h3>
-          <p class="advantages__text">Сверяем бирки, швы и коды моделей — подделки к нам не попадают.</p>
+          <h3 class="advantages__title">Проверка звучания</h3>
+          <p class="advantages__text">Прослушиваем каждую пластинку: без щелчков, царапин и деформаций.</p>
         </li>
         <li class="advantages__item">
-          <h3 class="advantages__title">Примерка перед оплатой</h3>
-          <p class="advantages__text">Платите картой онлайн или при получении, после примерки.</p>
+          <h3 class="advantages__title">Оплата при получении</h3>
+          <p class="advantages__text">Платите картой онлайн или курьеру, когда проверите заказ.</p>
         </li>
       </ul>
-    </section>
-
-    <section class="section lookbook" id="lookbook" aria-labelledby="lookbook-title" aria-roledescription="карусель">
-
-      <ul class="lookbook__track" tabindex="0" aria-label="Лукбук: листайте горизонтально">
-        <li class="lookbook__slide">
-          <figure class="lookbook__figure">
-            <img class="lookbook__image" src="images/slider/slide-1.jpg" width="750" height="424"
-              alt="Трое друзей в ретро-формах сборных Нидерландов, Франции и Бразилии" loading="lazy">
-            <figcaption class="lookbook__caption">Сборные 98-го: Нидерланды, Франция, Бразилия</figcaption>
-          </figure>
-        </li>
-        <li class="lookbook__slide">
-          <figure class="lookbook__figure">
-            <img class="lookbook__image" src="images/slider/slide-2.jpg" width="1080" height="716"
-              alt="Девушка в красной форме «Манчестер Юнайтед» среди друзей в чёрном" loading="lazy">
-            <figcaption class="lookbook__caption">Красный «Юнайтед»</figcaption>
-          </figure>
-        </li>
-        <li class="lookbook__slide">
-          <figure class="lookbook__figure">
-            <img class="lookbook__image" src="images/slider/slide-3.jpg" width="1152" height="768"
-              alt="Люди в синих и белых формах «Реала» в светлом зале с паркетом" loading="lazy">
-            <figcaption class="lookbook__caption">«Реал» в стиле old money</figcaption>
-          </figure>
-        </li>
-        <li class="lookbook__slide">
-          <figure class="lookbook__figure">
-            <img class="lookbook__image" src="images/slider/slide-4.jpg" width="768" height="507"
-              alt="Четверо парней в винтажных футбольных футболках на улице" loading="lazy">
-            <figcaption class="lookbook__caption">Ретро-формы на каждый день</figcaption>
-          </figure>
-        </li>
-      </ul>
-
-      <div class="lookbook__dots"></div>
     </section>
 
     <section class="section" id="popular">
@@ -138,49 +95,20 @@
       <div class="products-grid">
         <article class="product-card">
           <span class="product-card__badge">Новинка</span>
-          <div class="card-slider">
-            <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
-              <li class="card-slider__slide">
-                <img
-                  class="product-card__image"
-                  src="images/france-2006/france-2006-640.jpg"
-                  srcset="images/france-2006/france-2006-640.jpg 480w,
-                          images/france-2006/france-2006-640.jpg 640w,
-                          images/france-2006/france-2006-960.jpg 960w"
-                  sizes="(max-width: 639px) 100vw,
-                         (max-width: 1023px) 50vw,
-                         33vw"
-                  alt="Футболка сборной Франции 2006 года, вид спереди"
-                  width="640"
-                  height="640"
-                  loading="lazy"
-                >
-              </li>
-              <li class="card-slider__slide">
-                <img
-                  class="product-card__image"
-                  src="images/france-2006/france-2006-back-640.jpg"
-                  srcset="images/france-2006/france-2006-back-480.jpg 480w,
-                          images/france-2006/france-2006-back-640.jpg 640w,
-                          images/france-2006/france-2006-back-960.jpg 960w"
-                  sizes="(max-width: 639px) 100vw,
-                         (max-width: 1023px) 50vw,
-                         33vw"
-                  alt="Футболка сборной Франции 2006 года, вид сзади"
-                  width="640"
-                  height="640"
-                  loading="lazy"
-                >
-              </li>
-            </ul>
-            <div class="card-slider__dots"></div>
-          </div>
-          <h3 class="product-card__title">Франция 2006</h3>
-          <p class="product-card__description">Выездная форма Adidas с чемпионата мира 2006 года — того самого, что закончился финалом в Берлине.</p>
-          <p class="product-card__price">9 900 руб.</p>
+          <img
+            class="product-card__image"
+            src="images/placeholder-record.svg"
+            alt=""
+            width="600"
+            height="600"
+            loading="lazy"
+          >
+          <h3 class="product-card__title">Daft Punk — Random Access Memories</h3>
+          <p class="product-card__description">Электроника, 2013. Двойной LP с «Get Lucky» и «Instant Crush».</p>
+          <p class="product-card__price">5 900 руб.</p>
           <div class="product-card__actions">
             <a class="button button--secondary" href="product.html">Подробнее</a>
-            <button class="button button--primary product-card__button" type="button" data-product="Франция 2006">
+            <button class="button button--primary product-card__button" type="button" data-product="Daft Punk — Random Access Memories">
               Заказать
             </button>
           </div>
@@ -188,49 +116,20 @@
 
         <article class="product-card">
           <span class="product-card__badge">Хит</span>
-          <div class="card-slider">
-            <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
-              <li class="card-slider__slide">
-                <img
-                  class="product-card__image"
-                  src="images/manunt/manunt-2007-640.jpg"
-                  srcset="images/manunt/manunt-2007-480.jpg 480w,
-                          images/manunt/manunt-2007-640.jpg 640w,
-                          images/manunt/manunt-2007-960.jpg 960w"
-                  sizes="(max-width: 639px) 100vw,
-                         (max-width: 1023px) 50vw,
-                         33vw"
-                  alt="Футболка Манчестер Юнайтед 2007, вид спереди"
-                  width="640"
-                  height="640"
-                  loading="lazy"
-                >
-              </li>
-              <li class="card-slider__slide">
-                <img
-                  class="product-card__image"
-                  src="images/manunt/manunt-2007-back-640.jpg"
-                  srcset="images/manunt/manunt-2007-back-480.jpg 480w,
-                          images/manunt/manunt-2007-back-640.jpg 640w,
-                          images/manunt/manunt-2007-back-960.jpg 960w"
-                  sizes="(max-width: 639px) 100vw,
-                         (max-width: 1023px) 50vw,
-                         33vw"
-                  alt="Футболка Манчестер Юнайтед 2007, вид сзади"
-                  width="640"
-                  height="640"
-                  loading="lazy"
-                >
-              </li>
-            </ul>
-            <div class="card-slider__dots"></div>
-          </div>
-          <h3 class="product-card__title">Манчестер Юнайтед 2007</h3>
-          <p class="product-card__description">Домашняя форма Nike со спонсором AIG — сезон, в котором «Юнайтед» выиграл Лигу чемпионов.</p>
-          <p class="product-card__price">15 900 руб.</p>
+          <img
+            class="product-card__image"
+            src="images/placeholder-record.svg"
+            alt=""
+            width="600"
+            height="600"
+            loading="lazy"
+          >
+          <h3 class="product-card__title">Pink Floyd — The Dark Side of the Moon</h3>
+          <p class="product-card__description">Рок, 1973. Один из самых продаваемых альбомов в истории.</p>
+          <p class="product-card__price">4 900 руб.</p>
           <div class="product-card__actions">
             <a class="button button--secondary" href="product.html">Подробнее</a>
-            <button class="button button--primary product-card__button" type="button" data-product="Манчестер Юнайтед 2007">
+            <button class="button button--primary product-card__button" type="button" data-product="Pink Floyd — The Dark Side of the Moon">
               Заказать
             </button>
           </div>
@@ -238,49 +137,20 @@
 
         <article class="product-card product-card--discount">
           <span class="product-card__badge">Скидка</span>
-          <div class="card-slider">
-            <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
-              <li class="card-slider__slide">
-                <img
-                  class="product-card__image"
-                  src="images/real-2000/real-2000-640.jpg"
-                  srcset="images/real-2000/real-2000-480.jpg 480w,
-                          images/real-2000/real-2000-640.jpg 640w,
-                          images/real-2000/real-2000-960.jpg 960w"
-                  sizes="(max-width: 639px) 100vw,
-                         (max-width: 1023px) 50vw,
-                         33vw"
-                  alt="Футболка Реал Мадрид 2000, вид спереди"
-                  width="640"
-                  height="640"
-                  loading="lazy"
-                >
-              </li>
-              <li class="card-slider__slide">
-                <img
-                  class="product-card__image"
-                  src="images/real-2000/real-2000-back-640.jpg"
-                  srcset="images/real-2000/real-2000-back-480.jpg 480w,
-                          images/real-2000/real-2000-back-640.jpg 640w,
-                          images/real-2000/real-2000-back-960.jpg 960w"
-                  sizes="(max-width: 639px) 100vw,
-                         (max-width: 1023px) 50vw,
-                         33vw"
-                  alt="Футболка Реал Мадрид 2000, вид сзади"
-                  width="640"
-                  height="640"
-                  loading="lazy"
-                >
-              </li>
-            </ul>
-            <div class="card-slider__dots"></div>
-          </div>
-          <h3 class="product-card__title">Реал Мадрид 2000</h3>
-          <p class="product-card__description">Домашняя форма Adidas со спонсором Teka — эпоха первых «галактикос».</p>
-          <p class="product-card__price">8 400 руб.</p>
+          <img
+            class="product-card__image"
+            src="images/placeholder-record.svg"
+            alt=""
+            width="600"
+            height="600"
+            loading="lazy"
+          >
+          <h3 class="product-card__title">Miles Davis — Kind of Blue</h3>
+          <p class="product-card__description">Джаз, 1959. Классика модального джаза на 180-граммовом виниле.</p>
+          <p class="product-card__price">3 900 руб.</p>
           <div class="product-card__actions">
             <a class="button button--secondary" href="product.html">Подробнее</a>
-            <button class="button button--primary product-card__button" type="button" data-product="Реал Мадрид 2000">
+            <button class="button button--primary product-card__button" type="button" data-product="Miles Davis — Kind of Blue">
               Заказать
             </button>
           </div>
@@ -291,15 +161,21 @@
     <aside class="aside-info">
       <h2>Информация для покупателей</h2>
       <p>
-        Не уверены в размере? Укажите рост и вес в комментарии к заявке — подберём. Оформить её можно на странице <a href="order.html">«Заявка»</a>
+        Оформить заявку можно на странице <a href="order.html">«Заявка»</a>
         или через кнопку «Заказать» в карточке товара.
       </p>
     </aside>
+
+    <section class="section js-check" aria-labelledby="js-check-title">
+      <h2 class="section__title" id="js-check-title">Проверка JavaScript</h2>
+      <p class="js-message">JavaScript пока не выполнился.</p>
+      <pre class="product-output"></pre>
+    </section>
   </main>
 
   <footer class="site-footer" id="contacts">
     <div class="site-footer__inner">
-      <p class="site-footer__text">&copy; 2026 Kanan — ретро-формы. Учебный проект.</p>
+      <p class="site-footer__text">&copy; 2026 HeartBeat. Учебный проект.</p>
       <nav class="site-footer__links" aria-label="Ссылки в подвале">
         <a href="index.html#advantages">Преимущества</a>
         <a href="index.html#popular">Популярные товары</a>
