@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +9,10 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <script src="js/data.js" defer></script>
+  <script src="js/validation.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Перейти к основному содержимому</a>
 
@@ -55,7 +58,7 @@
     <section class="section">
       <h1>Оформление заявки</h1>
 
-      <form class="order-form" action="#" method="post">
+      <form class="order-form" novalidate>
         <p class="order-form__note order-form__field--wide">
           Поля, отмеченные звёздочкой (*), обязательны для заполнения.
         </p>
@@ -63,16 +66,20 @@
         <div class="order-form__field">
           <label class="order-form__label" for="order-name">Имя *</label>
           <input class="order-form__input" id="order-name" name="name" type="text" required>
+          <p class="form-error" id="order-name-error"></p>
         </div>
 
         <div class="order-form__field">
           <label class="order-form__label" for="order-email">E-mail *</label>
           <input class="order-form__input" id="order-email" name="email" type="email" required>
+          <p class="form-error" id="order-email-error"></p>
         </div>
 
         <div class="order-form__field">
-          <label class="order-form__label" for="order-phone">Телефон</label>
-          <input class="order-form__input" id="order-phone" name="phone" type="tel" placeholder="+7 900 000-00-00">
+          <label class="order-form__label" for="order-phone">Телефон *</label>
+          <input class="order-form__input" id="order-phone" name="phone" type="tel" placeholder="+7 900 000-00-00"
+            required>
+          <p class="form-error" id="order-phone-error"></p>
         </div>
 
         <div class="order-form__field">
@@ -102,6 +109,8 @@
           <button class="button button--primary" type="submit">Отправить заявку</button>
           <button class="button button--secondary" type="reset">Очистить</button>
         </div>
+        
+        <p class="form-message order-form__field--wide" aria-live="polite"></p>
       </form>
     </section>
   </main>
@@ -119,4 +128,5 @@
 
   <a class="button button--primary back-to-top" href="#top">Наверх</a>
 </body>
+
 </html>
