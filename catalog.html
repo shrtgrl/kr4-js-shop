@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Каталог — Kanan</title>
+  <meta name="description" content="Каталог футбольных ретро-форм Kanan: клубы и сборные 1990–2000-х.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Перейти к основному содержимому</a>
+
+  <header class="site-header" id="top">
+    <div class="site-header__inner">
+      <a class="site-header__logo" href="index.html">
+        <img src="images/logo-light.svg" alt="Kanan — на главную" width="134" height="32">
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav-list"
+        aria-label="Открыть меню">
+        <span class="nav-toggle__line" aria-hidden="true"></span>
+        <span class="nav-toggle__line" aria-hidden="true"></span>
+        <span class="nav-toggle__line" aria-hidden="true"></span>
+      </button>
+
+      <nav class="site-nav" aria-label="Основная навигация">
+        <ul class="site-nav__list" id="site-nav-list">
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="index.html">Главная</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link site-nav__link--active" href="catalog.html" aria-current="page">Каталог</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="product.html">Товар</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="order.html">Заявка</a>
+          </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="contacts.html">Контакты</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <nav class="breadcrumbs" aria-label="Хлебные крошки">
+      <a class="breadcrumbs__link" href="index.html">Главная</a>
+      <span class="breadcrumbs__current" aria-current="page">Каталог</span>
+    </nav>
+
+    <section class="section">
+      <h1>Каталог форм</h1>
+    </section>
+
+    <div class="catalog-layout">
+      <aside class="catalog-filters">
+        <div class="catalog-filters__header">
+          <h2 class="catalog-filters__title">Фильтры</h2>
+          <button class="button button--secondary catalog-filters__toggle" type="button" aria-expanded="false"
+            aria-controls="filters-form">
+            Показать фильтры
+          </button>
+        </div>
+
+        <form class="filters-form" id="filters-form" action="#" method="get">
+          <fieldset class="filters-form__group">
+            <legend class="filters-form__legend">Категория</legend>
+            <label class="filters-form__option">
+              <input type="checkbox" name="category" value="new"> Новинки
+            </label>
+            <label class="filters-form__option">
+              <input type="checkbox" name="category" value="popular"> Популярные
+            </label>
+            <label class="filters-form__option">
+              <input type="checkbox" name="category" value="sale"> Со скидкой
+            </label>
+          </fieldset>
+
+          <fieldset class="filters-form__group">
+            <legend class="filters-form__legend">Цена, руб.</legend>
+            <label class="filters-form__label" for="price-from">От</label>
+            <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" placeholder="6000">
+            <label class="filters-form__label" for="price-to">До</label>
+            <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="16000">
+          </fieldset>
+
+          <button class="button button--primary" type="submit">Применить</button>
+          <button class="button button--secondary" type="reset">Сбросить</button>
+        </form>
+      </aside>
+
+      <section class="catalog-products">
+        <h2 class="section__title">Список товаров</h2>
+
+        <div class="products-grid">
+          <article class="product-card">
+            <span class="product-card__badge">Новинка</span>
+            <div class="card-slider">
+              <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/france-2006/france-2006-640.jpg"
+                    srcset="images/france-2006/france-2006-480.jpg 480w,
+                            images/france-2006/france-2006-640.jpg 640w,
+                            images/france-2006/france-2006-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка сборной Франции 2006 года, вид спереди"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/france-2006/france-2006-back-640.jpg"
+                    srcset="images/france-2006/france-2006-back-480.jpg 480w,
+                            images/france-2006/france-2006-back-640.jpg 640w,
+                            images/france-2006/france-2006-back-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка сборной Франции 2006 года, вид сзади"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+              </ul>
+              <div class="card-slider__dots"></div>
+            </div>
+            <h3 class="product-card__title">Франция 2006</h3>
+            <p class="product-card__description">Выездная форма Adidas с чемпионата мира 2006 года — того самого, что закончился финалом в Берлине.</p>
+            <p class="product-card__price">9 900 руб.</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <button class="button button--primary product-card__button" type="button" data-product="Франция 2006">
+                Заказать
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <span class="product-card__badge">Хит</span>
+            <div class="card-slider">
+              <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/manunt/manunt-2007-640.jpg"
+                    srcset="images/manunt/manunt-2007-480.jpg 480w,
+                            images/manunt/manunt-2007-640.jpg 640w,
+                            images/manunt/manunt-2007-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка Манчестер Юнайтед 2007, вид спереди"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/manunt/manunt-2007-back-640.jpg"
+                    srcset="images/manunt/manunt-2007-back-480.jpg 480w,
+                            images/manunt/manunt-2007-back-640.jpg 640w,
+                            images/manunt/manunt-2007-back-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка Манчестер Юнайтед 2007, вид сзади"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+              </ul>
+              <div class="card-slider__dots"></div>
+            </div>
+            <h3 class="product-card__title">Манчестер Юнайтед 2007</h3>
+            <p class="product-card__description">Домашняя форма Nike со спонсором AIG — сезон, в котором «Юнайтед» выиграл Лигу чемпионов.</p>
+            <p class="product-card__price">12 500 руб.</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <button class="button button--primary product-card__button" type="button" data-product="Манчестер Юнайтед 2007">
+                Заказать
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card product-card--discount">
+            <span class="product-card__badge">Скидка</span>
+            <div class="card-slider">
+              <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/real-2000/real-2000-640.jpg"
+                    srcset="images/real-2000/real-2000-480.jpg 480w,
+                            images/real-2000/real-2000-640.jpg 640w,
+                            images/real-2000/real-2000-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка Реал Мадрид 2000, вид спереди"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/real-2000/real-2000-back-640.jpg"
+                    srcset="images/real-2000/real-2000-back-480.jpg 480w,
+                            images/real-2000/real-2000-back-640.jpg 640w,
+                            images/real-2000/real-2000-back-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка Реал Мадрид 2000, вид сзади"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+              </ul>
+              <div class="card-slider__dots"></div>
+            </div>
+            <h3 class="product-card__title">Реал Мадрид 2000</h3>
+            <p class="product-card__description">Домашняя форма Adidas со спонсором Teka — эпоха первых «галактикос».</p>
+            <p class="product-card__price">8 400 руб.</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <button class="button button--primary product-card__button" type="button" data-product="Реал Мадрид 2000">
+                Заказать
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="card-slider">
+              <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/barca-10/barca-10-640.jpg"
+                    srcset="images/barca-10/barca-10-480.jpg 480w,
+                            images/barca-10/barca-10-640.jpg 640w,
+                            images/barca-10/barca-10-896.jpg 896w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка «Барселоны» с номером 10, вид спереди"
+                    width="640"
+                    height="857"
+                    loading="lazy"
+                  >
+                </li>
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/barca-10/barca-10-back-640.jpg"
+                    srcset="images/barca-10/barca-10-back-480.jpg 480w,
+                            images/barca-10/barca-10-back-640.jpg 640w,
+                            images/barca-10/barca-10-back-896.jpg 896w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка «Барселоны» с номером 10, вид сзади"
+                    width="640"
+                    height="857"
+                    loading="lazy"
+                  >
+                </li>
+              </ul>
+              <div class="card-slider__dots"></div>
+            </div>
+            <h3 class="product-card__title">Барселона 2003</h3>
+            <p class="product-card__description">Футболка «Барселоны» с легендарной десяткой на спине.</p>
+            <p class="product-card__price">15 900 руб.</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <button class="button button--primary product-card__button" type="button" data-product="Барселона, номер 10">
+                Заказать
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <span class="product-card__badge">Новинка</span>
+            <div class="card-slider">
+              <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/milan/milan-2007-640.jpg"
+                    srcset="images/milan/milan-2007-480.jpg 480w,
+                            images/milan/milan-2007-640.jpg 640w,
+                            images/milan/milan-2007-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка «Милана» 2007 года, вид спереди"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/milan/milan-2007-back-640.jpg"
+                    srcset="images/milan/milan-2007-back-480.jpg 480w,
+                            images/milan/milan-2007-back-640.jpg 640w,
+                            images/milan/milan-2007-back-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка «Милана» 2007 года, вид сзади"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+              </ul>
+              <div class="card-slider__dots"></div>
+            </div>
+            <h3 class="product-card__title">Милан 2007</h3>
+            <p class="product-card__description">Форма сезона, когда «Милан» взял Лигу чемпионов в Афинах.</p>
+            <p class="product-card__price">11 200 руб.</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <button class="button button--primary product-card__button" type="button" data-product="Милан 2007">
+                Заказать
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="card-slider">
+              <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/japan/japan-special-640.jpg"
+                    srcset="images/japan/japan-special-480.jpg 480w,
+                            images/japan/japan-special-640.jpg 640w,
+                            images/japan/japan-special-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка сборной Японии, специальная серия, вид спереди"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/japan/japan-special-back-640.jpg"
+                    srcset="images/japan/japan-special-back-480.jpg 480w,
+                            images/japan/japan-special-back-640.jpg 640w,
+                            images/japan/japan-special-back-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Футболка сборной Японии, специальная серия, вид сзади"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+              </ul>
+              <div class="card-slider__dots"></div>
+            </div>
+            <h3 class="product-card__title">Япония, специальная серия</h3>
+            <p class="product-card__description">Лимитированная серия сборной Японии — редкая вещь для коллекции.</p>
+            <p class="product-card__price">6 500 руб.</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <button class="button button--primary product-card__button" type="button" data-product="Япония, специальная серия">
+                Заказать
+              </button>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="card-slider">
+              <ul class="card-slider__track" tabindex="0" aria-label="Фото товара: листайте горизонтально">
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/portugal/portugal-2004-640.jpg"
+                    srcset="images/portugal/portugal-2004-480.jpg 480w,
+                            images/portugal/portugal-2004-640.jpg 640w,
+                            images/portugal/portugal-2004-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Красная футболка сборной Португалии 2004 года с номером 17 на груди, вид спереди"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+                <li class="card-slider__slide">
+                  <img
+                    class="product-card__image"
+                    src="images/portugal/portugal-2004-back-640.jpg"
+                    srcset="images/portugal/portugal-2004-back-480.jpg 480w,
+                            images/portugal/portugal-2004-back-640.jpg 640w,
+                            images/portugal/portugal-2004-back-960.jpg 960w"
+                    sizes="(max-width: 639px) 100vw,
+                           (max-width: 1023px) 50vw,
+                           33vw"
+                    alt="Красная футболка сборной Португалии 2004 года с номером 17 на груди, вид сзади"
+                    width="640"
+                    height="640"
+                    loading="lazy"
+                  >
+                </li>
+              </ul>
+              <div class="card-slider__dots"></div>
+            </div>
+            <h3 class="product-card__title">Португалия 2004</h3>
+            <p class="product-card__description">Домашняя форма Nike с Евро-2004 в Португалии — номер 17, под которым играл молодой Роналду.</p>
+            <p class="product-card__price">13 800 руб.</p>
+            <div class="product-card__actions">
+              <a class="button button--secondary" href="product.html">Подробнее</a>
+              <button class="button button--primary product-card__button" type="button" data-product="Португалия 2004">
+                Заказать
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer" id="contacts">
+    <div class="site-footer__inner">
+      <p class="site-footer__text">&copy; 2026 Kanan — ретро-формы. Учебный проект.</p>
+      <nav class="site-footer__links" aria-label="Ссылки в подвале">
+        <a href="index.html#advantages">Преимущества</a>
+        <a href="index.html#popular">Популярные товары</a>
+        <a href="contacts.html">Контакты</a>
+      </nav>
+    </div>
+  </footer>
+
+  <a class="button button--primary back-to-top" href="#top">Наверх</a>
+
+  <dialog class="order-dialog" id="order-dialog" aria-labelledby="order-dialog-title">
+    <h2 class="order-dialog__title" id="order-dialog-title">Быстрая заявка</h2>
+
+    <form class="order-form" action="#" method="post">
+      <input type="hidden" id="dialog-product" name="product">
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-name">Имя *</label>
+        <input class="order-form__input" id="dialog-name" name="name" type="text" required>
+      </div>
+
+      <div class="order-form__field">
+        <label class="order-form__label" for="dialog-email">E-mail *</label>
+        <input class="order-form__input" id="dialog-email" name="email" type="email" required>
+      </div>
+
+      <div class="order-form__actions">
+        <button class="button button--primary" type="submit">Отправить заявку</button>
+        <button class="button button--secondary" type="button" id="close-order-dialog">Закрыть</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+
+</html>
