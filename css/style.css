@@ -651,12 +651,20 @@ main {
 }
 
 /* ===============================
-   17. Учебный блок проверки JS
+   17. Ошибки формы
    =============================== */
-.product-output {
-  padding: var(--space-md);
-  overflow-x: auto;
-  color: var(--color-white);
-  background-color: var(--color-text);
-  border-radius: var(--radius-md);
+.form-error {
+  min-height: 1.2em;
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: var(--color-danger);
+}
+
+.order-form__input[aria-invalid="true"] {
+  border-color: var(--color-danger);
+}
+
+.form-message {
+  margin: 0;
+  font-weight: 700;
 }

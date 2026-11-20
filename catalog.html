@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <script src="js/data.js" defer></script>
+  <script src="js/catalog.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
@@ -69,161 +70,41 @@
           </button>
         </div>
 
-        <form class="filters-form" id="filters-form" action="#" method="get">
-          <fieldset class="filters-form__group">
-            <legend class="filters-form__legend">Категория</legend>
-            <label class="filters-form__option">
-              <input type="checkbox" name="category" value="new"> Новинки
-            </label>
-            <label class="filters-form__option">
-              <input type="checkbox" name="category" value="popular"> Популярные
-            </label>
-            <label class="filters-form__option">
-              <input type="checkbox" name="category" value="sale"> Со скидкой
-            </label>
-          </fieldset>
+        <div class="filters-form" id="filters-form">
+          <div class="filters-form__group">
+            <label class="filters-form__label" for="catalog-search">Поиск пластинки</label>
+            <input class="filters-form__input" id="catalog-search" type="search" placeholder="Исполнитель или альбом"
+              autocomplete="off">
+          </div>
 
-          <fieldset class="filters-form__group">
-            <legend class="filters-form__legend">Цена, руб.</legend>
-            <label class="filters-form__label" for="price-from">От</label>
-            <input class="filters-form__input" id="price-from" name="price-from" type="number" min="0" placeholder="0">
-            <label class="filters-form__label" for="price-to">До</label>
-            <input class="filters-form__input" id="price-to" name="price-to" type="number" min="0" placeholder="7000">
-          </fieldset>
+          <div class="filters-form__group">
+            <label class="filters-form__label" for="category-filter">Жанр</label>
+            <select class="filters-form__input" id="category-filter">
+              <option value="all">Все жанры</option>
+              <option value="hiphop">Хип-хоп</option>
+              <option value="rock">Рок</option>
+              <option value="rnb">R&amp;B</option>
+            </select>
+          </div>
 
-          <button class="button button--primary" type="submit">Применить</button>
-          <button class="button button--secondary" type="reset">Сбросить</button>
-        </form>
+          <div class="filters-form__group">
+            <label class="filters-form__label" for="sort-select">Сортировка</label>
+            <select class="filters-form__input" id="sort-select">
+              <option value="default">По умолчанию</option>
+              <option value="price-asc">Сначала дешевле</option>
+              <option value="price-desc">Сначала дороже</option>
+              <option value="title-asc">По названию А–Я</option>
+            </select>
+          </div>
+        </div>
       </aside>
 
       <section class="catalog-products">
         <h2 class="section__title">Список товаров</h2>
 
-        <div class="products-grid">
-          <article class="product-card">
-            <span class="product-card__badge">Новинка</span>
-            <img
-              class="product-card__image"
-              src="images/placeholder-record.svg"
-              alt=""
-              width="600"
-              height="600"
-              loading="lazy"
-            >
-            <h3 class="product-card__title">Daft Punk — Random Access Memories</h3>
-            <p class="product-card__description">Электроника, 2013. Двойной LP с «Get Lucky» и «Instant Crush».</p>
-            <p class="product-card__price">5 900 руб.</p>
-            <div class="product-card__actions">
-              <a class="button button--secondary" href="product.html">Подробнее</a>
-              <button class="button button--primary product-card__button" type="button" data-product="Daft Punk — Random Access Memories">
-                Заказать
-              </button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <span class="product-card__badge">Хит</span>
-            <img
-              class="product-card__image"
-              src="images/placeholder-record.svg"
-              alt=""
-              width="600"
-              height="600"
-              loading="lazy"
-            >
-            <h3 class="product-card__title">Pink Floyd — The Dark Side of the Moon</h3>
-            <p class="product-card__description">Рок, 1973. Один из самых продаваемых альбомов в истории.</p>
-            <p class="product-card__price">4 900 руб.</p>
-            <div class="product-card__actions">
-              <a class="button button--secondary" href="product.html">Подробнее</a>
-              <button class="button button--primary product-card__button" type="button" data-product="Pink Floyd — The Dark Side of the Moon">
-                Заказать
-              </button>
-            </div>
-          </article>
-
-          <article class="product-card product-card--discount">
-            <span class="product-card__badge">Скидка</span>
-            <img
-              class="product-card__image"
-              src="images/placeholder-record.svg"
-              alt=""
-              width="600"
-              height="600"
-              loading="lazy"
-            >
-            <h3 class="product-card__title">Miles Davis — Kind of Blue</h3>
-            <p class="product-card__description">Джаз, 1959. Классика модального джаза на 180-граммовом виниле.</p>
-            <p class="product-card__price">3 900 руб.</p>
-            <div class="product-card__actions">
-              <a class="button button--secondary" href="product.html">Подробнее</a>
-              <button class="button button--primary product-card__button" type="button" data-product="Miles Davis — Kind of Blue">
-                Заказать
-              </button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <img
-              class="product-card__image"
-              src="images/placeholder-record.svg"
-              alt=""
-              width="600"
-              height="600"
-              loading="lazy"
-            >
-            <h3 class="product-card__title">Nirvana — Nevermind</h3>
-            <p class="product-card__description">Рок, 1991. Альбом, который вывел гранж в мейнстрим.</p>
-            <p class="product-card__price">4 500 руб.</p>
-            <div class="product-card__actions">
-              <a class="button button--secondary" href="product.html">Подробнее</a>
-              <button class="button button--primary product-card__button" type="button" data-product="Nirvana — Nevermind">
-                Заказать
-              </button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <span class="product-card__badge">Новинка</span>
-            <img
-              class="product-card__image"
-              src="images/placeholder-record.svg"
-              alt=""
-              width="600"
-              height="600"
-              loading="lazy"
-            >
-            <h3 class="product-card__title">Kendrick Lamar — To Pimp a Butterfly</h3>
-            <p class="product-card__description">Хип-хоп, 2015. Двойной LP с джазом и фанком.</p>
-            <p class="product-card__price">6 200 руб.</p>
-            <div class="product-card__actions">
-              <a class="button button--secondary" href="product.html">Подробнее</a>
-              <button class="button button--primary product-card__button" type="button" data-product="Kendrick Lamar — To Pimp a Butterfly">
-                Заказать
-              </button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <img
-              class="product-card__image"
-              src="images/placeholder-record.svg"
-              alt=""
-              width="600"
-              height="600"
-              loading="lazy"
-            >
-            <h3 class="product-card__title">Кино — Группа крови</h3>
-            <p class="product-card__description">Русский рок, 1988. Переиздание на чёрном виниле.</p>
-            <p class="product-card__price">3 500 руб.</p>
-            <div class="product-card__actions">
-              <a class="button button--secondary" href="product.html">Подробнее</a>
-              <button class="button button--primary product-card__button" type="button" data-product="Кино — Группа крови">
-                Заказать
-              </button>
-            </div>
-          </article>
-        </div>
+        <p class="catalog-count" aria-live="polite"></p>
+        <p class="catalog-empty" hidden>По выбранным условиям пластинки не найдены.</p>
+        <div class="products-grid" data-products-container></div>
       </section>
     </div>
   </main>
