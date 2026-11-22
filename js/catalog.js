@@ -17,19 +17,6 @@ const catalogState = {
   sort: 'default'
 };
 
-function formatPrice(price) {
-  return `${price.toLocaleString('ru-RU')} руб.`;
-}
-
-function calculateDiscount(price, discountPercent) {
-  return price * discountPercent / 100;
-}
-
-function calculateFinalPrice(price, discountPercent) {
-  const discountValue = calculateDiscount(price, discountPercent);
-  return price - discountValue;
-}
-
 function getProductStatus(product) {
   if (product.isAvailable) {
     return 'В наличии';
@@ -233,6 +220,10 @@ if (productsContainer) {
       return;
     }
 
-    console.log(`Товар добавлен в корзину: ${selectedProduct.title}`);
+    addToCart(selectedProduct.id);
+    button.textContent = 'Добавлено ✓';
+    setTimeout(() => {
+    button.textContent = 'В корзину';
+    }, 1200);
   });
 }
