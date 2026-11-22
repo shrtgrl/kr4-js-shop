@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/responsive.css">
   <script src="js/data.js" defer></script>
+  <script src="js/cart.js" defer></script>
   <script src="js/main.js" defer></script>
 </head>
 
@@ -43,6 +44,9 @@
           <li class="site-nav__item">
             <a class="site-nav__link" href="contacts.html">Контакты</a>
           </li>
+          <li class="site-nav__item">
+            <a class="site-nav__link" href="cart.html">Корзина <span class="cart-counter" hidden></span></a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -61,13 +65,7 @@
           <a class="button button--secondary" href="#popular">Популярные товары</a>
         </div>
       </div>
-      <img
-        class="hero__image"
-        src="images/placeholder-record.svg"
-        alt=""
-        width="600"
-        height="600"
-      >
+      <img class="hero__image" src="images/placeholder-record.svg" alt="" width="600" height="600">
     </section>
 
     <section class="section" id="advantages">
@@ -95,20 +93,15 @@
       <div class="products-grid">
         <article class="product-card">
           <span class="product-card__badge">Новинка</span>
-          <img
-            class="product-card__image"
-            src="images/placeholder-record.svg"
-            alt=""
-            width="600"
-            height="600"
-            loading="lazy"
-          >
+          <img class="product-card__image" src="images/placeholder-record.svg" alt="" width="600" height="600"
+            loading="lazy">
           <h3 class="product-card__title">Daft Punk — Random Access Memories</h3>
           <p class="product-card__description">Электроника, 2013. Двойной LP с «Get Lucky» и «Instant Crush».</p>
           <p class="product-card__price">5 900 руб.</p>
           <div class="product-card__actions">
             <a class="button button--secondary" href="product.html">Подробнее</a>
-            <button class="button button--primary product-card__button" type="button" data-product="Daft Punk — Random Access Memories">
+            <button class="button button--primary product-card__button" type="button"
+              data-product="Daft Punk — Random Access Memories">
               Заказать
             </button>
           </div>
@@ -116,20 +109,15 @@
 
         <article class="product-card">
           <span class="product-card__badge">Хит</span>
-          <img
-            class="product-card__image"
-            src="images/placeholder-record.svg"
-            alt=""
-            width="600"
-            height="600"
-            loading="lazy"
-          >
+          <img class="product-card__image" src="images/placeholder-record.svg" alt="" width="600" height="600"
+            loading="lazy">
           <h3 class="product-card__title">Pink Floyd — The Dark Side of the Moon</h3>
           <p class="product-card__description">Рок, 1973. Один из самых продаваемых альбомов в истории.</p>
           <p class="product-card__price">4 900 руб.</p>
           <div class="product-card__actions">
             <a class="button button--secondary" href="product.html">Подробнее</a>
-            <button class="button button--primary product-card__button" type="button" data-product="Pink Floyd — The Dark Side of the Moon">
+            <button class="button button--primary product-card__button" type="button"
+              data-product="Pink Floyd — The Dark Side of the Moon">
               Заказать
             </button>
           </div>
@@ -137,20 +125,15 @@
 
         <article class="product-card product-card--discount">
           <span class="product-card__badge">Скидка</span>
-          <img
-            class="product-card__image"
-            src="images/placeholder-record.svg"
-            alt=""
-            width="600"
-            height="600"
-            loading="lazy"
-          >
+          <img class="product-card__image" src="images/placeholder-record.svg" alt="" width="600" height="600"
+            loading="lazy">
           <h3 class="product-card__title">Miles Davis — Kind of Blue</h3>
           <p class="product-card__description">Джаз, 1959. Классика модального джаза на 180-граммовом виниле.</p>
           <p class="product-card__price">3 900 руб.</p>
           <div class="product-card__actions">
             <a class="button button--secondary" href="product.html">Подробнее</a>
-            <button class="button button--primary product-card__button" type="button" data-product="Miles Davis — Kind of Blue">
+            <button class="button button--primary product-card__button" type="button"
+              data-product="Miles Davis — Kind of Blue">
               Заказать
             </button>
           </div>
