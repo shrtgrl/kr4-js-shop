@@ -10,3 +10,9 @@ const products = [
   { id: 9, title: 'The Beatles — Abbey Road', category: 'rock', year: 1969, price: 4800, discountPercent: 20, rating: 4.9, isAvailable: true, image: 'images/placeholder-record.svg', description: 'Последний записанный альбом группы с «Come Together» и «Here Comes the Sun».' },
   { id: 10, title: 'Kendrick Lamar — DAMN.', category: 'hiphop', year: 2017, price: 5600, discountPercent: 0, rating: 4.8, isAvailable: true, image: 'images/placeholder-record.svg', description: 'Альбом, получивший Пулитцеровскую премию в области музыки.' }
 ];
+
+const CATEGORY_LABELS = {
+  hiphop: 'Хип-хоп',
+  rock: 'Рок',
+  rnb: 'R&B'
+};

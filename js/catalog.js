@@ -5,10 +5,7 @@ const categoryFilter = document.querySelector('#category-filter');
 const sortSelect = document.querySelector('#sort-select');
 const catalogCount = document.querySelector('.catalog-count');
 const catalogEmpty = document.querySelector('.catalog-empty');
-
-if (!productsContainer) {
-  console.warn('Контейнер товаров не найден. Проверьте data-products-container.');
-}
+const popularContainer = document.querySelector('[data-popular-container]');
 
 // ===== Состояние каталога =====
 const catalogState = {
@@ -85,7 +82,7 @@ function sortProducts(products, sortType) {
 
   if (sortType === 'price-asc') {
     return productsCopy.sort((a, b) => getFinal(a) - getFinal(b));
-    }
+  }
 
   if (sortType === 'price-desc') {
     return productsCopy.sort((a, b) => getFinal(b) - getFinal(a));
@@ -154,7 +151,16 @@ function createProductCard(product) {
     button.textContent = 'Нет в наличии';
   }
 
-  card.append(image, title, description, price, status, button);
+  const link = document.createElement('a');
+  link.classList.add('button', 'button--secondary');
+  link.href = `product.html?id=${product.id}`;
+  link.textContent = 'Подробнее';
+
+  const actions = document.createElement('div');
+  actions.classList.add('product-card__actions');
+  actions.append(link, button);
+
+  card.append(image, title, description, price, status, actions);
   return card;
 }
 
@@ -204,26 +210,52 @@ if (productsContainer) {
   updateCatalog();
 }
 
-if (productsContainer) {
-  productsContainer.addEventListener('click', (event) => {
-    const button = event.target.closest('[data-action="add-to-cart"]');
+function handleAddToCartClick(event) {
+  const button = event.target.closest('[data-action="add-to-cart"]');
 
-    if (!button) {
-      return;
-    }
+  if (!button) {
+    return;
+  }
 
-    const productId = Number(button.dataset.productId);
-    const selectedProduct = findProductById(products, productId);
+  const productId = Number(button.dataset.productId);
+  const selectedProduct = findProductById(products, productId);
 
-    if (!selectedProduct) {
-      console.warn('Товар не найден:', productId);
-      return;
-    }
+  if (!selectedProduct) {
+    console.warn('Товар не найден:', productId);
+    return;
+  }
 
-    addToCart(selectedProduct.id);
-    button.textContent = 'Добавлено ✓';
-    setTimeout(() => {
+  addToCart(selectedProduct.id);
+  button.textContent = 'Добавлено ✓';
+  setTimeout(() => {
     button.textContent = 'В корзину';
-    }, 1200);
+  }, 1200);
+}
+
+if (productsContainer) {
+  productsContainer.addEventListener('click', handleAddToCartClick);
+}
+
+if (popularContainer) {
+  popularContainer.addEventListener('click', handleAddToCartClick);
+}
+
+// ===== Случайные пластинки на главной =====
+function getRandomProducts(products, count) {
+  const shuffled = [...products];
+
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled.slice(0, count);
+}
+
+if (popularContainer) {
+  const availableProducts = getAvailableProducts(products);
+
+  getRandomProducts(availableProducts, 3).forEach((product) => {
+    popularContainer.append(createProductCard(product));
   });
 }
