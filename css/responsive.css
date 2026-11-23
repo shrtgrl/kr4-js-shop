@@ -246,20 +246,20 @@ main,
    =============================== */
 
 .skip-link {
-  position: absolute;
-  top: -100px;
-  left: 16px;
-  z-index: 1000;
-  padding: 8px 12px;
-  color: var(--color-white);
-  background-color: var(--color-text);
-  border-radius: var(--radius-sm);
-  text-decoration: none;
+    position: absolute;
+    top: -100px;
+    left: 16px;
+    z-index: 1000;
+    padding: 8px 12px;
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
 }
 
 .skip-link:focus,
 .skip-link:focus-visible {
-  top: 16px;
+    top: 16px;
 }
 
 /* ===== Таблица: карточки на мобильном ===== */
@@ -321,6 +321,7 @@ main,
 }
 
 @media (min-width: 640px) {
+
     .products-grid,
     .advantages {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -361,7 +362,7 @@ main,
         top: 0;
     }
 
-        .nav-toggle {
+    .nav-toggle {
         display: none;
     }
 
@@ -404,6 +405,15 @@ main,
     [id] {
         scroll-margin-top: 88px;
     }
+
+    .site-nav {
+        margin-left: auto;
+    }
+
+    .theme-toggle {
+        order: 2;
+        margin-left: 8px;
+    }
 }
 
 @media (min-width: 900px) {
@@ -415,6 +425,7 @@ main,
 }
 
 @media (min-width: 1024px) {
+
     .products-grid,
     .advantages {
         grid-template-columns: repeat(3, minmax(0, 1fr));
