@@ -21,3 +21,12 @@ if (filtersToggle && filtersForm) {
     filtersToggle.textContent = isOpen ? 'Скрыть фильтры' : 'Показать фильтры';
   });
 }
+
+// Случайное фото на главном экране (список HERO_IMAGES в data.js).
+const heroImage = document.querySelector('.hero__image');
+
+if (heroImage && typeof HERO_IMAGES !== 'undefined') {
+  const randomHero = HERO_IMAGES[Math.floor(Math.random() * HERO_IMAGES.length)];
+  heroImage.src = randomHero.src;
+  heroImage.alt = randomHero.alt;
+}
